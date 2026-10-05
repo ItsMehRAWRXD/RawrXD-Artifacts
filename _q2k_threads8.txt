@@ -1,0 +1,1264 @@
+model=F:\Franken\BackwardsUnlock\60m\unlock-60M-Q2_K.gguf tokens=2 gpu_requested=0
+[Deep2Engine] MLA_TENSOR name=blk.0.attn_k.weight shape=[3072,1024] type=12 bytes=1769472
+[Deep2Engine] MLA_TENSOR name=blk.0.attn_norm.weight shape=[3072] type=0 bytes=12288
+[Deep2Engine] MLA_TENSOR name=blk.0.attn_output.weight shape=[3072,3072] type=12 bytes=5308416
+[Deep2Engine] MLA_TENSOR name=blk.0.attn_q.weight shape=[3072,3072] type=12 bytes=5308416
+[Deep2Engine] MLA_TENSOR name=blk.0.attn_v.weight shape=[3072,1024] type=14 bytes=2580480
+[Deep2Engine] MLA_METADATA arch=llama layout=unknown numHeads=24 kvLoraRank=0 qLoraRank=0 qkNopeHeadDim=0 qkRopeHeadDim=0 vHeadDim=128 keyLength=128 valueLength=128 geometryValidated=0
+[Deep2Engine] ROPE_ARCH=llama ROPE_THETA_GLOBAL=500000.0 ROPE_THETA_LOCAL=500000.0 SLIDING_WINDOW=0 SLIDING_WINDOW_PATTERN=0
+[QuantKernelRegistry] CPU features: AVX512F=1 AVX512BW=1 AVX512DQ=1 AVX512VNNI=1 AVX2=1 FMA=1 F16C=1
+[QuantKernelRegistry] Registered 14 GEMV kernels, 14 dequant kernels
+[Deep2Engine] admission OK arch=llama family=GENERIC_TRANSFORMER moe=0 mla=0 recurrent=0 slidingWindow=0 quant=Q6_K(type 14) tensors=255
+[INIT] Deep2Engine::initialize hiddenDim=3072 vocabSize=128256 numLayers=28 numHeads=24 maxSeqLen=2048 numThreads=0
+[INIT] remote64 authority linked observe=0 control=0
+[QuantKernelRegistry] CPU features: AVX512F=1 AVX512BW=1 AVX512DQ=1 AVX512VNNI=1 AVX2=1 FMA=1 F16C=1
+[QuantKernelRegistry] Registered 14 GEMV kernels, 14 dequant kernels
+[INIT] KVCache+tokenizer+sampler created
+[ALLOC] allocateBuffers H=3072 V=128256 I=8192
+[ALLOC] qDim=3072 kvDim=1024 numHeads=24 headDim=128 numKVHeads=8
+[ALLOC] all buffers allocated OK
+[INIT] allocateBuffers OK
+[INIT] KVCache::allocate OK layers=28 heads=8 headDim=128 maxSeqLen=2048
+[INIT] Deep2Engine::initialize SUCCESS
+[Deep2Engine] GGUF mapped: arch=llama shards=1 tensors=255 layers=28 hidden=3072 heads=24 kv_heads=8 vocab=128256
+ARCH=llama
+HIDDEN=3072
+LAYERS=28
+HEADS=24
+KV_HEADS=8
+HEAD_DIM=128
+GQA_GROUP=3
+FFN_DIM=8192
+ROPE_THETA=500000
+ROPE_SCALING=1
+ROPE_DIM=128
+ROPE_NEOX=1
+RMS_EPS=1e-05
+Q_BIAS=absent
+K_BIAS=absent
+V_BIAS=absent
+TIE_EMBED=1
+load_ms=728.1
+
+---- dispatch receipt (production engine) ----
+ENGINE=Deep2::Deep2Engine          (the engine rawrxd.exe runs)
+MODEL_PATH=F:\Franken\BackwardsUnlock\60m\unlock-60M-Q2_K.gguf
+GPU_REQUESTED=0
+GPU_INITIALIZED=0                (introspected: isVulkanInitialized)
+GPU_DEVICE_COUNT=0               (introspected: vulkanDeviceCount)
+VULKAN_COMPUTE_SLOT0=0            (introspected: getVulkanComputeSlot(0))
+WEIGHT_TYPE=Q4_K                      (introspected: loaded tensors, id=12)
+WEIGHT_TYPE_DOMINANCE=84.8%          (share of projection/FFN tensors at that type)
+WEIGHT_TYPE_HISTOGRAM=Q4_K=168 Q6_K=30 (tensors=198)
+PACKED_GEMV=N/A_PENDING_TELEMETRY (no per-feature selection counter)
+NATIVE_Q4_K=N/A_PENDING_TELEMETRY (no per-feature selection counter)
+NATIVE_Q3_K=EXCLUDED_PENDING_B65   (never admitted to a success column)
+FUSED_QKV=N/A_PENDING_TELEMETRY
+FUSED_ATTN=N/A_PENDING_TELEMETRY
+PREFETCH=N/A_PENDING_TELEMETRY
+KV_CACHE_GATING=N/A_PENDING_TELEMETRY
+ATTENTION_MATH=N/A_PENDING_TELEMETRY
+FALLBACKS=N/A_PENDING_TELEMETRY
+MEASURED_REGION=decode_only        (generationTimeMs, not total wall)
+NOTE=rawrxd::TransformerRuntime (used by regime_sweep.cpp) is NOT this
+     engine. Its numbers do not transfer and are not promoted here.
+
+[TOKENIZE] text='The capital of France is' -> 5 tokens
+[FWD_ALL] seqLen=1 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+SLOW_LAYER layer=0 ms=110.039 seqLen=1
+SLOW_LAYER layer=1 ms=112.364 seqLen=1
+SLOW_LAYER layer=4 ms=111.304 seqLen=1
+SLOW_LAYER layer=7 ms=104.454 seqLen=1
+SLOW_LAYER layer=10 ms=120.013 seqLen=1
+SLOW_LAYER layer=13 ms=112.835 seqLen=1
+SLOW_LAYER layer=16 ms=111.465 seqLen=1
+SLOW_LAYER layer=19 ms=113.313 seqLen=1
+SLOW_LAYER layer=20 ms=108.686 seqLen=1
+SLOW_LAYER layer=21 ms=108.306 seqLen=1
+SLOW_LAYER layer=23 ms=112.532 seqLen=1
+SLOW_LAYER layer=24 ms=119.802 seqLen=1
+SLOW_LAYER layer=25 ms=113.052 seqLen=1
+SLOW_LAYER layer=26 ms=116.956 seqLen=1
+SLOW_LAYER layer=27 ms=118.053 seqLen=1
+[FWD_ALL] seqLen=2 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+SLOW_LAYER layer=0 ms=100.042 seqLen=2
+SLOW_LAYER layer=24 ms=101.948 seqLen=2
+[FWD_ALL] seqLen=3 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=4 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=5 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=6 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[STREAM] RESULT generated=2 promptTokens=5 prefillMs=12020.7 decodeMs=3432.1 tps=0.58 cancelled=0 completed=1 status=0 cache_hits=981 cache_misses=197 cache_evictions=0
+[TOKENIZE] text='The capital of France is' -> 5 tokens
+[FWD_ALL] seqLen=1 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+SLOW_LAYER layer=13 ms=103.663 seqLen=1
+SLOW_LAYER layer=20 ms=100.062 seqLen=1
+[FWD_ALL] seqLen=2 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+SLOW_LAYER layer=23 ms=100.065 seqLen=2
+SLOW_LAYER layer=25 ms=100.174 seqLen=2
+[FWD_ALL] seqLen=3 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+SLOW_LAYER layer=4 ms=100.893 seqLen=3
+[FWD_ALL] seqLen=4 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+SLOW_LAYER layer=1 ms=100.366 seqLen=4
+SLOW_LAYER layer=19 ms=100.663 seqLen=4
+[FWD_ALL] seqLen=5 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+SLOW_LAYER layer=0 ms=107.736 seqLen=5
+SLOW_LAYER layer=25 ms=108.528 seqLen=5
+[FWD_ALL] seqLen=6 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+SLOW_LAYER layer=1 ms=109.433 seqLen=6
+SLOW_LAYER layer=19 ms=104.558 seqLen=6
+--- rep0 The capital of ---
+  stream: prompt=5 generated=2 completed=1 cancelled=0 status=0 wall=15452.9 ms
+  engine: prompt=5 tok (0.42 tok/s)  generated=2 tok decode=3393.2 ms (0.589 tok/s)
+[TOKENIZE] text='The capital of France is' -> 5 tokens
+[FWD_ALL] seqLen=1 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+SLOW_LAYER layer=19 ms=104.682 seqLen=1
+SLOW_LAYER layer=20 ms=103.324 seqLen=1
+SLOW_LAYER layer=27 ms=101.582 seqLen=1
+[FWD_ALL] seqLen=2 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=3 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+SLOW_LAYER layer=10 ms=110.234 seqLen=3
+[FWD_ALL] seqLen=4 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+SLOW_LAYER layer=4 ms=102.742 seqLen=4
+[FWD_ALL] seqLen=5 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=6 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[STREAM] RESULT generated=2 promptTokens=5 prefillMs=11785.4 decodeMs=3348.8 tps=0.60 cancelled=0 completed=1 status=0 cache_hits=3337 cache_misses=197 cache_evictions=0
+[TOKENIZE] text='The capital of France is' -> 5 tokens
+[FWD_ALL] seqLen=1 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+SLOW_LAYER layer=0 ms=104.429 seqLen=1
+[FWD_ALL] seqLen=2 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=3 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+SLOW_LAYER layer=25 ms=100.105 seqLen=3
+[FWD_ALL] seqLen=4 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=5 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=6 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+--- rep1 The capital of ---
+  stream: prompt=5 generated=2 completed=1 cancelled=0 status=0 wall=15134.2 ms
+  engine: prompt=5 tok (0.44 tok/s)  generated=2 tok decode=3262.6 ms (0.613 tok/s)
+[TOKENIZE] text='def fibonacci(n):
+    if n < 2:
+        return n
+' -> 18 tokens
+[FWD_ALL] seqLen=1 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=2 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=3 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=4 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=5 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=6 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+SLOW_LAYER layer=16 ms=103.783 seqLen=6
+[FWD_ALL] seqLen=7 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=8 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=9 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=10 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=11 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=12 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=13 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=14 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=15 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=16 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=17 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=18 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=19 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[STREAM] RESULT generated=2 promptTokens=18 prefillMs=39938.5 decodeMs=3201.4 tps=0.62 cancelled=0 completed=1 status=0 cache_hits=8241 cache_misses=197 cache_evictions=0
+[TOKENIZE] text='def fibonacci(n):
+    if n < 2:
+        return n
+' -> 18 tokens
+[FWD_ALL] seqLen=1 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=2 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=3 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=4 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=5 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=6 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=7 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=8 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=9 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=10 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=11 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=12 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=13 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=14 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=15 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=16 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=17 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=18 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=19 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+--- rep0 def fibonacci( ---
+  stream: prompt=18 generated=2 completed=1 cancelled=0 status=0 wall=43140.0 ms
+  engine: prompt=18 tok (0.46 tok/s)  generated=2 tok decode=3234.3 ms (0.618 tok/s)
+[TOKENIZE] text='def fibonacci(n):
+    if n < 2:
+        return n
+' -> 18 tokens
+[FWD_ALL] seqLen=1 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=2 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=3 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=4 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=5 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=6 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=7 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=8 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=9 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+SLOW_LAYER layer=13 ms=109.241 seqLen=9
+[FWD_ALL] seqLen=10 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+SLOW_LAYER layer=7 ms=107.240 seqLen=10
+[FWD_ALL] seqLen=11 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=12 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=13 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=14 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=15 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=16 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=17 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=18 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=19 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[STREAM] RESULT generated=2 promptTokens=18 prefillMs=39391.3 decodeMs=3142.0 tps=0.64 cancelled=0 completed=1 status=0 cache_hits=15693 cache_misses=197 cache_evictions=0
+[TOKENIZE] text='def fibonacci(n):
+    if n < 2:
+        return n
+' -> 18 tokens
+[FWD_ALL] seqLen=1 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=2 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=3 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=4 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=5 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=6 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=7 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=8 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=9 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=10 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=11 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=12 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb
+[FWD_ALL] seqLen=13 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=4852fe819e90e8df shard=0 file_off=387100896 backing=1 bytes=5308416 dims=3072x3072
+[WQEXT] WQ type=12 ne0=3072 ne1=3072 nb0=3072 nb1=5308416 data=000001A0565AB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WQ first84=e60de01bab7fbfe25676bf58a40d0d5093a7baa9949297bfd695d0b485a8a177b806799055b6a295a146daa29ae66997afccbb38db5bb0dd74cd4f9da95a8b388bfbda0b168d3f7b5c8b4f8aaa79488d77baf82b
+[PROV] site=WQEXT tensor=WK id=4ad49eb8be9d9a9d shard=0 file_off=380023008 backing=1 bytes=1769472 dims=1024x3072
+[WQEXT] WK type=12 ne0=3072 ne1=1024 nb0=3072 nb1=1769472 data=000001A055EEB0E0 row_bytes=1728 blocks_per_row=12 block_size=144.0000
+[WQEXT] WK first84=9811641d665da1bf5e5eac7f5babe5b1764248d4a5f78b2755a5c87430ba9bcb5658a8e3b5a80773a0888b659f78a9638d969a8daaac848a7dabae9b93fe8a8f8a6b8d59509c3a594a770e8a7a8a9d7d2440c6ba
+[PROV] site=WQEXT tensor=WV id=8b9c25658950f68e shard=0 file_off=392409312 backing=1 bytes=2580480 dims=1024x3072
+[WQEXT] WV type=14 ne0=3072 ne1=1024 nb0=3072 nb1=2580480 data=000001A056ABB0E0 row_bytes=2520 blocks_per_row=12 block_size=210.0000
+[WQEXT] WV first84=aa57ec332fdfc49c028e01c895f045b6bc9f89a1c1f919c5030d20f12680b90c6e473ee0875592c5a9a11e0c1001ff28250226f322d0c1c7cf7944101e10b25011eaf0170eb61d00cf0e1841919104682c3f60fb

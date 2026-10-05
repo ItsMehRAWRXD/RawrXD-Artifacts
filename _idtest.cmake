@@ -1,0 +1,7 @@
+include(${CMAKE_SOURCE_DIR}/cmake/rawr_build_identity.cmake)
+rawr_sha256_manifest(M "F:/~dev/rawrxd/src/deep2/Deep2Engine.h" "F:/~dev/rawrxd/CMakeLists.txt")
+message(STATUS "MANIFEST=[${M}]")
+rawr_git_head(H)
+message(STATUS "HEAD=[${H}]")
+rawr_tree_dirty(D)
+message(STATUS "DIRTY=[${D}]")

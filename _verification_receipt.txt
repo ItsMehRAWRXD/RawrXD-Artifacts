@@ -1,0 +1,701 @@
+=== RAWRXD_Q6K_FIX_VERIFICATION_RECEIPT ===
+TIMESTAMP: 2026-10-04 00:31:32
+BINARY: F:\~dev\rawrxd\build\bin\Release\rawr.exe
+BINARY_SHA256: CD4BF9C90D5D1179DA0FF476528AB10C4CBCB0A2C3E0E17CA85942A4432D3D15
+MODEL: G:\~dev\rawrxd\models\llama3.2-3b-Q2_K.gguf
+MODEL_SHA256: EE1CA8B716933587127F6FEB9FF5A247F1E4460E72DCF6293331B9617F8A8AA2
+=== RUNNING BENCHMARK ===
+[rawr run] MODEL_RESOLUTION: resolving 'G:\~dev\rawrxd\models\llama3.2-3b-Q2_K.gguf'
+[rawr run] MODEL_RESOLUTION=PASS  path=G:\~dev\rawrxd\models\llama3.2-3b-Q2_K.gguf
+[INIT] Deep2Engine::initialize hiddenDim=0 vocabSize=0 numLayers=0 numHeads=0 maxSeqLen=4096 numThreads=0
+[INIT] remote64 authority linked observe=0 control=0
+[QuantKernelRegistry] CPU features: AVX512F=1 AVX512BW=1 AVX512DQ=1 AVX512VNNI=1 AVX2=1 FMA=1 F16C=1
+[QuantKernelRegistry] Registered 14 GEMV kernels, 14 dequant kernels
+[INIT] KVCache+tokenizer+sampler created
+[INIT] Deep2Engine::initialize SUCCESS
+[rawr run] MODEL_LOAD: loading...
+[Deep2Engine] MLA_TENSOR name=blk.0.attn_k.weight shape=[3072,1024] type=10 bytes=1032192
+[Deep2Engine] MLA_TENSOR name=blk.0.attn_norm.weight shape=[3072] type=0 bytes=12288
+[Deep2Engine] MLA_TENSOR name=blk.0.attn_output.weight shape=[3072,3072] type=11 bytes=4055040
+[Deep2Engine] MLA_TENSOR name=blk.0.attn_q.weight shape=[3072,3072] type=10 bytes=3096576
+[Deep2Engine] MLA_TENSOR name=blk.0.attn_v.weight shape=[3072,1024] type=11 bytes=1351680
+[Deep2Engine] MLA_METADATA arch=llama layout=unknown numHeads=24 kvLoraRank=0 qLoraRank=0 qkNopeHeadDim=0 qkRopeHeadDim=0 vHeadDim=128 keyLength=128 valueLength=128 geometryValidated=0
+[Deep2Engine] ROPE_ARCH=llama ROPE_THETA_GLOBAL=500000.0 ROPE_THETA_LOCAL=500000.0 SLIDING_WINDOW=0 SLIDING_WINDOW_PATTERN=0
+[QuantKernelRegistry] CPU features: AVX512F=1 AVX512BW=1 AVX512DQ=1 AVX512VNNI=1 AVX2=1 FMA=1 F16C=1
+[QuantKernelRegistry] Registered 14 GEMV kernels, 14 dequant kernels
+[Deep2Engine] admission OK arch=llama family=GENERIC_TRANSFORMER moe=0 mla=0 recurrent=0 slidingWindow=0 quant=Q6_K(type 14) tensors=255
+[ALLOC] allocateBuffers H=3072 V=128256 I=8192
+[ALLOC] qDim=3072 kvDim=1024 numHeads=24 headDim=128 numKVHeads=8
+[ALLOC] all buffers allocated OK
+[Deep2Engine] GGUF mapped: arch=llama shards=1 tensors=255 layers=28 hidden=3072 heads=24 kv_heads=8 vocab=128256
+ARCH=llama
+HIDDEN=3072
+LAYERS=28
+HEADS=24
+KV_HEADS=8
+HEAD_DIM=128
+GQA_GROUP=3
+FFN_DIM=8192
+ROPE_THETA=500000
+ROPE_SCALING=1
+ROPE_DIM=128
+ROPE_NEOX=1
+RMS_EPS=1e-05
+Q_BIAS=absent
+K_BIAS=absent
+V_BIAS=absent
+TIE_EMBED=1
+[rawr run] MODEL_LOAD=PASS  756 ms
+[rawr run] GENERATE: streaming...
+[TOKENIZE] text='The capital of France is --max-tokens 1' -> 11 tokens
+[FWD_ALL] seqLen=1 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=0 ms=115.344 seqLen=1
+SLOW_LAYER layer=1 ms=101.802 seqLen=1
+SLOW_LAYER layer=7 ms=112.991 seqLen=1
+SLOW_LAYER layer=8 ms=123.285 seqLen=1
+SLOW_LAYER layer=16 ms=102.325 seqLen=1
+SLOW_LAYER layer=18 ms=111.317 seqLen=1
+[FWD_ALL] seqLen=2 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=0 ms=107.268 seqLen=2
+[FWD_ALL] seqLen=3 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=4 ms=106.212 seqLen=3
+SLOW_LAYER layer=9 ms=103.598 seqLen=3
+[FWD_ALL] seqLen=4 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=15 ms=102.843 seqLen=4
+SLOW_LAYER layer=22 ms=101.706 seqLen=4
+SLOW_LAYER layer=23 ms=112.003 seqLen=4
+SLOW_LAYER layer=24 ms=122.188 seqLen=4
+[FWD_ALL] seqLen=5 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=5 ms=102.243 seqLen=5
+SLOW_LAYER layer=8 ms=106.903 seqLen=5
+SLOW_LAYER layer=11 ms=112.735 seqLen=5
+SLOW_LAYER layer=12 ms=111.622 seqLen=5
+SLOW_LAYER layer=15 ms=119.697 seqLen=5
+[FWD_ALL] seqLen=6 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=27 ms=100.460 seqLen=6
+[FWD_ALL] seqLen=7 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=2 ms=113.572 seqLen=7
+SLOW_LAYER layer=20 ms=100.581 seqLen=7
+[FWD_ALL] seqLen=8 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[FWD_ALL] seqLen=9 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=20 ms=103.201 seqLen=9
+[FWD_ALL] seqLen=10 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[FWD_ALL] seqLen=11 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=24 ms=104.737 seqLen=11
+
+[2m[TPS][0m   0.04 tok/s | tokens=1      |   28.0s   [FWD_ALL] seqLen=12 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+
+[2m[TPS][0m   0.06 tok/s | tokens=2      |   30.9s   [FWD_ALL] seqLen=13 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=10 ms=103.165 seqLen=13
+SLOW_LAYER layer=11 ms=104.214 seqLen=13
+SLOW_LAYER layer=13 ms=118.567 seqLen=13
+SLOW_LAYER layer=14 ms=138.731 seqLen=13
+SLOW_LAYER layer=15 ms=105.875 seqLen=13
+SLOW_LAYER layer=16 ms=127.875 seqLen=13
+
+[2m[TPS][0m   0.09 tok/s | tokens=3      |   34.1s   [FWD_ALL] seqLen=14 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=2 ms=100.898 seqLen=14
+SLOW_LAYER layer=4 ms=108.254 seqLen=14
+SLOW_LAYER layer=14 ms=113.801 seqLen=14
+SLOW_LAYER layer=24 ms=112.632 seqLen=14
+
+[2m[TPS][0m   0.11 tok/s | tokens=4      |   37.2s   [FWD_ALL] seqLen=15 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=4 ms=106.704 seqLen=15
+SLOW_LAYER layer=6 ms=106.534 seqLen=15
+SLOW_LAYER layer=12 ms=104.440 seqLen=15
+SLOW_LAYER layer=15 ms=110.718 seqLen=15
+SLOW_LAYER layer=16 ms=111.495 seqLen=15
+SLOW_LAYER layer=20 ms=102.694 seqLen=15
+
+[2m[TPS][0m   0.12 tok/s | tokens=5      |   40.4s   [FWD_ALL] seqLen=16 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=5 ms=105.191 seqLen=16
+SLOW_LAYER layer=7 ms=101.117 seqLen=16
+SLOW_LAYER layer=15 ms=103.814 seqLen=16
+SLOW_LAYER layer=21 ms=100.581 seqLen=16
+SLOW_LAYER layer=22 ms=115.069 seqLen=16
+SLOW_LAYER layer=24 ms=121.885 seqLen=16
+SLOW_LAYER layer=25 ms=100.179 seqLen=16
+SLOW_LAYER layer=26 ms=108.100 seqLen=16
+
+[2m[TPS][0m   0.14 tok/s | tokens=6      |   43.6s   [FWD_ALL] seqLen=17 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=0 ms=112.342 seqLen=17
+SLOW_LAYER layer=1 ms=100.912 seqLen=17
+SLOW_LAYER layer=3 ms=100.425 seqLen=17
+SLOW_LAYER layer=9 ms=110.557 seqLen=17
+SLOW_LAYER layer=10 ms=110.785 seqLen=17
+SLOW_LAYER layer=12 ms=112.641 seqLen=17
+SLOW_LAYER layer=13 ms=100.251 seqLen=17
+SLOW_LAYER layer=16 ms=104.356 seqLen=17
+SLOW_LAYER layer=22 ms=123.422 seqLen=17
+SLOW_LAYER layer=23 ms=101.186 seqLen=17
+SLOW_LAYER layer=24 ms=111.918 seqLen=17
+SLOW_LAYER layer=25 ms=120.941 seqLen=17
+SLOW_LAYER layer=27 ms=112.571 seqLen=17
+
+[2m[TPS][0m   0.15 tok/s | tokens=7      |   46.9s   [FWD_ALL] seqLen=18 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=1 ms=104.544 seqLen=18
+SLOW_LAYER layer=2 ms=116.810 seqLen=18
+SLOW_LAYER layer=3 ms=118.399 seqLen=18
+SLOW_LAYER layer=7 ms=105.564 seqLen=18
+SLOW_LAYER layer=10 ms=105.406 seqLen=18
+SLOW_LAYER layer=13 ms=107.631 seqLen=18
+SLOW_LAYER layer=14 ms=104.104 seqLen=18
+SLOW_LAYER layer=19 ms=105.383 seqLen=18
+SLOW_LAYER layer=25 ms=106.356 seqLen=18
+SLOW_LAYER layer=26 ms=104.703 seqLen=18
+SLOW_LAYER layer=27 ms=130.816 seqLen=18
+
+[2m[TPS][0m   0.16 tok/s | tokens=8      |   50.2s   [FWD_ALL] seqLen=19 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=11 ms=100.523 seqLen=19
+SLOW_LAYER layer=15 ms=108.085 seqLen=19
+SLOW_LAYER layer=16 ms=105.260 seqLen=19
+SLOW_LAYER layer=25 ms=107.827 seqLen=19
+
+[2m[TPS][0m   0.17 tok/s | tokens=9      |   53.4s   [FWD_ALL] seqLen=20 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=0 ms=113.401 seqLen=20
+SLOW_LAYER layer=1 ms=100.920 seqLen=20
+SLOW_LAYER layer=2 ms=120.561 seqLen=20
+SLOW_LAYER layer=17 ms=107.901 seqLen=20
+SLOW_LAYER layer=25 ms=101.719 seqLen=20
+
+[2m[TPS][0m   0.18 tok/s | tokens=10     |   56.5s   [FWD_ALL] seqLen=21 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=4 ms=102.480 seqLen=21
+SLOW_LAYER layer=6 ms=106.451 seqLen=21
+SLOW_LAYER layer=9 ms=104.579 seqLen=21
+SLOW_LAYER layer=13 ms=106.807 seqLen=21
+SLOW_LAYER layer=14 ms=105.104 seqLen=21
+SLOW_LAYER layer=25 ms=112.944 seqLen=21
+SLOW_LAYER layer=26 ms=100.981 seqLen=21
+
+[2m[TPS][0m   0.18 tok/s | tokens=11     |   59.7s   [FWD_ALL] seqLen=22 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=10 ms=103.843 seqLen=22
+SLOW_LAYER layer=20 ms=103.202 seqLen=22
+
+[2m[TPS][0m   0.19 tok/s | tokens=12     |   62.7s   [FWD_ALL] seqLen=23 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=0 ms=104.196 seqLen=23
+SLOW_LAYER layer=5 ms=128.517 seqLen=23
+SLOW_LAYER layer=6 ms=102.608 seqLen=23
+SLOW_LAYER layer=7 ms=100.318 seqLen=23
+SLOW_LAYER layer=13 ms=109.843 seqLen=23
+SLOW_LAYER layer=14 ms=113.425 seqLen=23
+SLOW_LAYER layer=15 ms=107.523 seqLen=23
+SLOW_LAYER layer=17 ms=106.762 seqLen=23
+SLOW_LAYER layer=18 ms=115.595 seqLen=23
+SLOW_LAYER layer=19 ms=103.408 seqLen=23
+SLOW_LAYER layer=23 ms=106.035 seqLen=23
+
+[2m[TPS][0m   0.20 tok/s | tokens=13     |   65.9s   [FWD_ALL] seqLen=24 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=4 ms=103.230 seqLen=24
+SLOW_LAYER layer=5 ms=102.924 seqLen=24
+
+[2m[TPS][0m   0.20 tok/s | tokens=14     |   69.0s   [FWD_ALL] seqLen=25 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=0 ms=126.109 seqLen=25
+SLOW_LAYER layer=1 ms=118.201 seqLen=25
+SLOW_LAYER layer=6 ms=103.993 seqLen=25
+SLOW_LAYER layer=7 ms=103.605 seqLen=25
+SLOW_LAYER layer=17 ms=106.943 seqLen=25
+SLOW_LAYER layer=25 ms=104.338 seqLen=25
+
+[2m[TPS][0m   0.21 tok/s | tokens=15     |   72.2s   [FWD_ALL] seqLen=26 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=2 ms=109.855 seqLen=26
+SLOW_LAYER layer=17 ms=101.276 seqLen=26
+SLOW_LAYER layer=26 ms=109.382 seqLen=26
+
+[2m[TPS][0m   0.21 tok/s | tokens=16     |   75.4s   [FWD_ALL] seqLen=27 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=4 ms=104.059 seqLen=27
+SLOW_LAYER layer=5 ms=110.408 seqLen=27
+SLOW_LAYER layer=8 ms=106.533 seqLen=27
+SLOW_LAYER layer=9 ms=105.166 seqLen=27
+SLOW_LAYER layer=24 ms=103.236 seqLen=27
+SLOW_LAYER layer=26 ms=102.379 seqLen=27
+
+[2m[TPS][0m   0.22 tok/s | tokens=17     |   78.5s   [FWD_ALL] seqLen=28 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=4 ms=101.341 seqLen=28
+SLOW_LAYER layer=12 ms=103.854 seqLen=28
+SLOW_LAYER layer=17 ms=110.627 seqLen=28
+SLOW_LAYER layer=23 ms=112.698 seqLen=28
+SLOW_LAYER layer=24 ms=111.772 seqLen=28
+
+[2m[TPS][0m   0.22 tok/s | tokens=18     |   81.6s   [FWD_ALL] seqLen=29 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=27 ms=103.784 seqLen=29
+
+[2m[TPS][0m   0.22 tok/s | tokens=19     |   84.7s   [FWD_ALL] seqLen=30 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=4 ms=121.060 seqLen=30
+SLOW_LAYER layer=7 ms=102.792 seqLen=30
+SLOW_LAYER layer=11 ms=104.806 seqLen=30
+SLOW_LAYER layer=13 ms=100.421 seqLen=30
+SLOW_LAYER layer=14 ms=106.248 seqLen=30
+SLOW_LAYER layer=15 ms=106.430 seqLen=30
+SLOW_LAYER layer=18 ms=111.509 seqLen=30
+SLOW_LAYER layer=25 ms=115.645 seqLen=30
+
+[2m[TPS][0m   0.23 tok/s | tokens=20     |   87.8s   [FWD_ALL] seqLen=31 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=1 ms=108.170 seqLen=31
+
+[2m[TPS][0m   0.23 tok/s | tokens=21     |   90.9s   [FWD_ALL] seqLen=32 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=15 ms=102.803 seqLen=32
+SLOW_LAYER layer=23 ms=101.506 seqLen=32
+
+[2m[TPS][0m   0.23 tok/s | tokens=22     |   93.8s   [FWD_ALL] seqLen=33 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=5 ms=112.110 seqLen=33
+SLOW_LAYER layer=7 ms=103.795 seqLen=33
+
+[2m[TPS][0m   0.24 tok/s | tokens=23     |   96.8s   [FWD_ALL] seqLen=34 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=13 ms=102.517 seqLen=34
+
+[2m[TPS][0m   0.24 tok/s | tokens=24     |   99.8s   [FWD_ALL] seqLen=35 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=12 ms=103.727 seqLen=35
+SLOW_LAYER layer=14 ms=104.885 seqLen=35
+SLOW_LAYER layer=15 ms=104.663 seqLen=35
+SLOW_LAYER layer=20 ms=101.395 seqLen=35
+
+[2m[TPS][0m   0.24 tok/s | tokens=25     |  102.8s   [FWD_ALL] seqLen=36 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=10 ms=101.947 seqLen=36
+SLOW_LAYER layer=11 ms=106.276 seqLen=36
+
+[2m[TPS][0m   0.25 tok/s | tokens=26     |  105.8s   [FWD_ALL] seqLen=37 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=6 ms=100.565 seqLen=37
+
+[2m[TPS][0m   0.25 tok/s | tokens=27     |  108.8s   [FWD_ALL] seqLen=38 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=4 ms=105.883 seqLen=38
+SLOW_LAYER layer=5 ms=105.248 seqLen=38
+SLOW_LAYER layer=6 ms=164.190 seqLen=38
+SLOW_LAYER layer=7 ms=139.512 seqLen=38
+SLOW_LAYER layer=8 ms=115.756 seqLen=38
+SLOW_LAYER layer=9 ms=104.411 seqLen=38
+SLOW_LAYER layer=25 ms=101.017 seqLen=38
+
+[2m[TPS][0m   0.25 tok/s | tokens=28     |  112.0s   [FWD_ALL] seqLen=39 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=20 ms=100.351 seqLen=39
+
+[2m[TPS][0m   0.25 tok/s | tokens=29     |  115.0s   [FWD_ALL] seqLen=40 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=3 ms=103.328 seqLen=40
+SLOW_LAYER layer=4 ms=103.059 seqLen=40
+
+[2m[TPS][0m   0.25 tok/s | tokens=30     |  118.1s   [FWD_ALL] seqLen=41 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=2 ms=126.616 seqLen=41
+SLOW_LAYER layer=3 ms=110.992 seqLen=41
+SLOW_LAYER layer=4 ms=104.455 seqLen=41
+SLOW_LAYER layer=6 ms=103.905 seqLen=41
+
+[2m[TPS][0m   0.26 tok/s | tokens=31     |  121.2s   [FWD_ALL] seqLen=42 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=0 ms=100.019 seqLen=42
+SLOW_LAYER layer=1 ms=105.086 seqLen=42
+
+[2m[TPS][0m   0.26 tok/s | tokens=32     |  124.1s   [FWD_ALL] seqLen=43 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+
+[2m[TPS][0m   0.26 tok/s | tokens=33     |  127.1s   [FWD_ALL] seqLen=44 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+
+[2m[TPS][0m   0.26 tok/s | tokens=34     |  130.0s   [FWD_ALL] seqLen=45 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+
+[2m[TPS][0m   0.26 tok/s | tokens=35     |  133.0s   [FWD_ALL] seqLen=46 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=14 ms=109.059 seqLen=46
+SLOW_LAYER layer=15 ms=118.611 seqLen=46
+SLOW_LAYER layer=22 ms=109.876 seqLen=46
+SLOW_LAYER layer=23 ms=107.059 seqLen=46
+
+[2m[TPS][0m   0.26 tok/s | tokens=36     |  136.1s   [FWD_ALL] seqLen=47 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=0 ms=102.068 seqLen=47
+SLOW_LAYER layer=6 ms=102.010 seqLen=47
+SLOW_LAYER layer=7 ms=100.049 seqLen=47
+SLOW_LAYER layer=9 ms=101.784 seqLen=47
+SLOW_LAYER layer=17 ms=104.258 seqLen=47
+SLOW_LAYER layer=18 ms=114.325 seqLen=47
+SLOW_LAYER layer=23 ms=128.508 seqLen=47
+SLOW_LAYER layer=24 ms=106.272 seqLen=47
+SLOW_LAYER layer=25 ms=112.445 seqLen=47
+
+[2m[TPS][0m   0.27 tok/s | tokens=37     |  139.4s   [FWD_ALL] seqLen=48 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=0 ms=121.331 seqLen=48
+SLOW_LAYER layer=1 ms=101.910 seqLen=48
+SLOW_LAYER layer=2 ms=102.172 seqLen=48
+SLOW_LAYER layer=3 ms=104.988 seqLen=48
+SLOW_LAYER layer=5 ms=117.519 seqLen=48
+SLOW_LAYER layer=6 ms=100.061 seqLen=48
+SLOW_LAYER layer=7 ms=102.218 seqLen=48
+SLOW_LAYER layer=8 ms=101.921 seqLen=48
+SLOW_LAYER layer=9 ms=103.426 seqLen=48
+SLOW_LAYER layer=16 ms=121.752 seqLen=48
+SLOW_LAYER layer=17 ms=122.585 seqLen=48
+SLOW_LAYER layer=18 ms=120.476 seqLen=48
+
+[2m[TPS][0m   0.27 tok/s | tokens=38     |  142.7s   [FWD_ALL] seqLen=49 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=9 ms=111.822 seqLen=49
+SLOW_LAYER layer=18 ms=119.950 seqLen=49
+
+[2m[TPS][0m   0.27 tok/s | tokens=39     |  145.7s   [FWD_ALL] seqLen=50 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+
+[2m[TPS][0m   0.27 tok/s | tokens=40     |  148.6s   [FWD_ALL] seqLen=51 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=14 ms=105.090 seqLen=51
+SLOW_LAYER layer=16 ms=109.838 seqLen=51
+SLOW_LAYER layer=27 ms=103.385 seqLen=51
+
+[2m[TPS][0m   0.27 tok/s | tokens=41     |  151.7s   [FWD_ALL] seqLen=52 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=9 ms=102.175 seqLen=52
+SLOW_LAYER layer=10 ms=101.056 seqLen=52
+SLOW_LAYER layer=12 ms=107.105 seqLen=52
+SLOW_LAYER layer=24 ms=115.697 seqLen=52
+
+[2m[TPS][0m   0.27 tok/s | tokens=42     |  154.8s   [FWD_ALL] seqLen=53 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=7 ms=102.199 seqLen=53
+SLOW_LAYER layer=9 ms=107.554 seqLen=53
+SLOW_LAYER layer=10 ms=109.614 seqLen=53
+SLOW_LAYER layer=13 ms=105.222 seqLen=53
+SLOW_LAYER layer=23 ms=113.325 seqLen=53
+SLOW_LAYER layer=24 ms=108.539 seqLen=53
+
+[2m[TPS][0m   0.27 tok/s | tokens=43     |  157.9s   [FWD_ALL] seqLen=54 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=0 ms=112.995 seqLen=54
+SLOW_LAYER layer=4 ms=111.258 seqLen=54
+
+[2m[TPS][0m   0.27 tok/s | tokens=44     |  160.9s   [FWD_ALL] seqLen=55 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=5 ms=110.513 seqLen=55
+SLOW_LAYER layer=10 ms=101.996 seqLen=55
+
+[2m[TPS][0m   0.27 tok/s | tokens=45     |  163.9s   [FWD_ALL] seqLen=56 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=5 ms=101.275 seqLen=56
+SLOW_LAYER layer=21 ms=100.741 seqLen=56
+
+[2m[TPS][0m   0.28 tok/s | tokens=46     |  166.9s   [FWD_ALL] seqLen=57 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=4 ms=103.639 seqLen=57
+SLOW_LAYER layer=8 ms=102.068 seqLen=57
+SLOW_LAYER layer=20 ms=105.707 seqLen=57
+SLOW_LAYER layer=23 ms=106.172 seqLen=57
+
+[2m[TPS][0m   0.28 tok/s | tokens=47     |  170.0s   [FWD_ALL] seqLen=58 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=0 ms=102.049 seqLen=58
+SLOW_LAYER layer=3 ms=106.011 seqLen=58
+SLOW_LAYER layer=11 ms=100.408 seqLen=58
+SLOW_LAYER layer=14 ms=102.704 seqLen=58
+SLOW_LAYER layer=15 ms=101.848 seqLen=58
+SLOW_LAYER layer=24 ms=103.077 seqLen=58
+
+[2m[TPS][0m   0.28 tok/s | tokens=48     |  173.2s   [FWD_ALL] seqLen=59 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=0 ms=104.399 seqLen=59
+SLOW_LAYER layer=7 ms=115.237 seqLen=59
+SLOW_LAYER layer=9 ms=100.613 seqLen=59
+SLOW_LAYER layer=12 ms=108.191 seqLen=59
+SLOW_LAYER layer=18 ms=105.093 seqLen=59
+SLOW_LAYER layer=19 ms=107.046 seqLen=59
+SLOW_LAYER layer=20 ms=105.005 seqLen=59
+SLOW_LAYER layer=25 ms=101.752 seqLen=59
+
+[2m[TPS][0m   0.28 tok/s | tokens=49     |  176.4s   [FWD_ALL] seqLen=60 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=4 ms=103.884 seqLen=60
+SLOW_LAYER layer=5 ms=100.228 seqLen=60
+SLOW_LAYER layer=13 ms=100.757 seqLen=60
+SLOW_LAYER layer=14 ms=120.831 seqLen=60
+SLOW_LAYER layer=15 ms=100.382 seqLen=60
+SLOW_LAYER layer=23 ms=110.070 seqLen=60
+SLOW_LAYER layer=24 ms=139.210 seqLen=60
+
+[2m[TPS][0m   0.28 tok/s | tokens=50     |  179.6s   [FWD_ALL] seqLen=61 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=7 ms=114.180 seqLen=61
+
+[2m[TPS][0m   0.28 tok/s | tokens=51     |  182.6s   [FWD_ALL] seqLen=62 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=21 ms=100.715 seqLen=62
+
+[2m[TPS][0m   0.28 tok/s | tokens=52     |  185.6s   [FWD_ALL] seqLen=63 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+
+[2m[TPS][0m   0.28 tok/s | tokens=53     |  188.6s   [FWD_ALL] seqLen=64 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=18 ms=110.998 seqLen=64
+SLOW_LAYER layer=24 ms=101.665 seqLen=64
+
+[2m[TPS][0m   0.28 tok/s | tokens=54     |  191.6s   [FWD_ALL] seqLen=65 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=0 ms=101.017 seqLen=65
+
+[2m[TPS][0m   0.28 tok/s | tokens=55     |  194.5s   [FWD_ALL] seqLen=66 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=16 ms=116.566 seqLen=66
+SLOW_LAYER layer=22 ms=106.401 seqLen=66
+
+[2m[TPS][0m   0.28 tok/s | tokens=56     |  197.6s   [FWD_ALL] seqLen=67 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=16 ms=107.382 seqLen=67
+
+[2m[TPS][0m   0.28 tok/s | tokens=57     |  200.6s   [FWD_ALL] seqLen=68 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=13 ms=101.919 seqLen=68
+SLOW_LAYER layer=19 ms=114.036 seqLen=68
+SLOW_LAYER layer=20 ms=120.939 seqLen=68
+SLOW_LAYER layer=21 ms=102.819 seqLen=68
+
+[2m[TPS][0m   0.28 tok/s | tokens=58     |  203.7s   [FWD_ALL] seqLen=69 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+
+[2m[TPS][0m   0.29 tok/s | tokens=59     |  206.7s   [FWD_ALL] seqLen=70 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=9 ms=108.273 seqLen=70
+SLOW_LAYER layer=12 ms=107.489 seqLen=70
+SLOW_LAYER layer=14 ms=102.405 seqLen=70
+SLOW_LAYER layer=19 ms=123.104 seqLen=70
+
+[2m[TPS][0m   0.29 tok/s | tokens=60     |  209.8s   [FWD_ALL] seqLen=71 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=0 ms=105.286 seqLen=71
+SLOW_LAYER layer=17 ms=114.035 seqLen=71
+
+[2m[TPS][0m   0.29 tok/s | tokens=61     |  212.8s   [FWD_ALL] seqLen=72 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=14 ms=105.442 seqLen=72
+
+[2m[TPS][0m   0.29 tok/s | tokens=62     |  215.9s   [FWD_ALL] seqLen=73 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+
+[2m[TPS][0m   0.29 tok/s | tokens=63     |  218.9s   [FWD_ALL] seqLen=74 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=8 ms=121.487 seqLen=74
+
+[2m[TPS][0m   0.29 tok/s | tokens=64     |  221.9s   [FWD_ALL] seqLen=75 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=21 ms=101.632 seqLen=75
+SLOW_LAYER layer=23 ms=103.548 seqLen=75
+
+[2m[TPS][0m   0.29 tok/s | tokens=65     |  224.8s   [FWD_ALL] seqLen=76 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=4 ms=128.360 seqLen=76
+SLOW_LAYER layer=5 ms=124.979 seqLen=76
+SLOW_LAYER layer=6 ms=110.243 seqLen=76
+SLOW_LAYER layer=7 ms=123.020 seqLen=76
+SLOW_LAYER layer=8 ms=112.538 seqLen=76
+SLOW_LAYER layer=9 ms=119.284 seqLen=76
+SLOW_LAYER layer=10 ms=101.162 seqLen=76
+
+[2m[TPS][0m   0.29 tok/s | tokens=66     |  227.9s   [FWD_ALL] seqLen=77 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=25 ms=111.977 seqLen=77
+SLOW_LAYER layer=26 ms=116.499 seqLen=77
+
+[2m[TPS][0m   0.29 tok/s | tokens=67     |  230.9s   [FWD_ALL] seqLen=78 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=2 ms=100.732 seqLen=78
+SLOW_LAYER layer=3 ms=106.361 seqLen=78
+SLOW_LAYER layer=23 ms=121.614 seqLen=78
+
+[2m[TPS][0m   0.29 tok/s | tokens=68     |  233.9s   [FWD_ALL] seqLen=79 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=16 ms=104.622 seqLen=79
+SLOW_LAYER layer=17 ms=117.855 seqLen=79
+SLOW_LAYER layer=18 ms=100.684 seqLen=79
+
+[2m[TPS][0m   0.29 tok/s | tokens=69     |  237.0s   [FWD_ALL] seqLen=80 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=1 ms=100.748 seqLen=80
+SLOW_LAYER layer=9 ms=112.435 seqLen=80
+SLOW_LAYER layer=10 ms=111.601 seqLen=80
+SLOW_LAYER layer=17 ms=100.335 seqLen=80
+SLOW_LAYER layer=18 ms=110.647 seqLen=80
+SLOW_LAYER layer=20 ms=111.901 seqLen=80
+SLOW_LAYER layer=26 ms=102.319 seqLen=80
+SLOW_LAYER layer=27 ms=104.910 seqLen=80
+
+[2m[TPS][0m   0.29 tok/s | tokens=70     |  240.3s   [FWD_ALL] seqLen=81 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=8 ms=104.611 seqLen=81
+SLOW_LAYER layer=10 ms=107.929 seqLen=81
+SLOW_LAYER layer=13 ms=103.383 seqLen=81
+SLOW_LAYER layer=14 ms=106.111 seqLen=81
+SLOW_LAYER layer=18 ms=111.042 seqLen=81
+SLOW_LAYER layer=23 ms=102.156 seqLen=81
+SLOW_LAYER layer=24 ms=109.517 seqLen=81
+SLOW_LAYER layer=25 ms=105.846 seqLen=81
+SLOW_LAYER layer=26 ms=102.286 seqLen=81
+SLOW_LAYER layer=27 ms=110.175 seqLen=81
+
+[2m[TPS][0m   0.29 tok/s | tokens=71     |  243.5s   [FWD_ALL] seqLen=82 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=1 ms=109.177 seqLen=82
+SLOW_LAYER layer=2 ms=118.861 seqLen=82
+SLOW_LAYER layer=8 ms=110.685 seqLen=82
+SLOW_LAYER layer=10 ms=104.753 seqLen=82
+SLOW_LAYER layer=12 ms=106.015 seqLen=82
+SLOW_LAYER layer=16 ms=103.118 seqLen=82
+SLOW_LAYER layer=17 ms=102.056 seqLen=82
+SLOW_LAYER layer=18 ms=111.488 seqLen=82
+SLOW_LAYER layer=19 ms=100.768 seqLen=82
+SLOW_LAYER layer=27 ms=102.888 seqLen=82
+
+[2m[TPS][0m   0.29 tok/s | tokens=72     |  246.8s   [FWD_ALL] seqLen=83 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=1 ms=100.951 seqLen=83
+SLOW_LAYER layer=2 ms=102.022 seqLen=83
+SLOW_LAYER layer=3 ms=105.828 seqLen=83
+SLOW_LAYER layer=11 ms=100.031 seqLen=83
+SLOW_LAYER layer=15 ms=111.144 seqLen=83
+SLOW_LAYER layer=16 ms=104.679 seqLen=83
+SLOW_LAYER layer=17 ms=105.490 seqLen=83
+SLOW_LAYER layer=18 ms=103.850 seqLen=83
+SLOW_LAYER layer=19 ms=105.835 seqLen=83
+SLOW_LAYER layer=20 ms=109.028 seqLen=83
+SLOW_LAYER layer=21 ms=116.765 seqLen=83
+SLOW_LAYER layer=27 ms=103.158 seqLen=83
+
+[2m[TPS][0m   0.29 tok/s | tokens=73     |  250.1s   [FWD_ALL] seqLen=84 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=3 ms=105.283 seqLen=84
+SLOW_LAYER layer=8 ms=101.010 seqLen=84
+SLOW_LAYER layer=12 ms=103.996 seqLen=84
+SLOW_LAYER layer=18 ms=102.478 seqLen=84
+SLOW_LAYER layer=20 ms=101.950 seqLen=84
+
+[2m[TPS][0m   0.29 tok/s | tokens=74     |  253.2s   [FWD_ALL] seqLen=85 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=2 ms=100.565 seqLen=85
+SLOW_LAYER layer=3 ms=102.073 seqLen=85
+SLOW_LAYER layer=4 ms=109.044 seqLen=85
+SLOW_LAYER layer=5 ms=118.508 seqLen=85
+SLOW_LAYER layer=6 ms=101.726 seqLen=85
+SLOW_LAYER layer=7 ms=101.879 seqLen=85
+SLOW_LAYER layer=8 ms=119.225 seqLen=85
+SLOW_LAYER layer=11 ms=101.684 seqLen=85
+SLOW_LAYER layer=12 ms=109.722 seqLen=85
+SLOW_LAYER layer=13 ms=113.494 seqLen=85
+SLOW_LAYER layer=14 ms=112.714 seqLen=85
+SLOW_LAYER layer=17 ms=103.704 seqLen=85
+SLOW_LAYER layer=20 ms=106.049 seqLen=85
+SLOW_LAYER layer=22 ms=101.968 seqLen=85
+SLOW_LAYER layer=27 ms=113.836 seqLen=85
+
+[2m[TPS][0m   0.29 tok/s | tokens=75     |  256.5s   [FWD_ALL] seqLen=86 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=1 ms=100.620 seqLen=86
+SLOW_LAYER layer=3 ms=102.031 seqLen=86
+SLOW_LAYER layer=4 ms=101.440 seqLen=86
+SLOW_LAYER layer=6 ms=108.004 seqLen=86
+SLOW_LAYER layer=8 ms=101.586 seqLen=86
+SLOW_LAYER layer=13 ms=109.663 seqLen=86
+SLOW_LAYER layer=18 ms=106.185 seqLen=86
+SLOW_LAYER layer=23 ms=106.340 seqLen=86
+SLOW_LAYER layer=27 ms=101.331 seqLen=86
+
+[2m[TPS][0m   0.29 tok/s | tokens=76     |  259.8s   [FWD_ALL] seqLen=87 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=0 ms=134.049 seqLen=87
+SLOW_LAYER layer=1 ms=125.075 seqLen=87
+SLOW_LAYER layer=2 ms=119.664 seqLen=87
+SLOW_LAYER layer=3 ms=103.748 seqLen=87
+SLOW_LAYER layer=4 ms=114.368 seqLen=87
+SLOW_LAYER layer=5 ms=114.901 seqLen=87
+SLOW_LAYER layer=6 ms=105.297 seqLen=87
+SLOW_LAYER layer=7 ms=108.046 seqLen=87
+SLOW_LAYER layer=8 ms=102.072 seqLen=87
+SLOW_LAYER layer=12 ms=128.780 seqLen=87
+SLOW_LAYER layer=13 ms=130.286 seqLen=87
+SLOW_LAYER layer=14 ms=116.626 seqLen=87
+SLOW_LAYER layer=17 ms=107.627 seqLen=87
+SLOW_LAYER layer=19 ms=102.225 seqLen=87
+SLOW_LAYER layer=21 ms=104.952 seqLen=87
+SLOW_LAYER layer=22 ms=108.567 seqLen=87
+SLOW_LAYER layer=27 ms=101.153 seqLen=87
+
+[2m[TPS][0m   0.29 tok/s | tokens=77     |  263.2s   [FWD_ALL] seqLen=88 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=3 ms=114.931 seqLen=88
+SLOW_LAYER layer=5 ms=112.733 seqLen=88
+SLOW_LAYER layer=7 ms=103.499 seqLen=88
+SLOW_LAYER layer=12 ms=107.956 seqLen=88
+SLOW_LAYER layer=14 ms=103.294 seqLen=88
+SLOW_LAYER layer=16 ms=101.770 seqLen=88
+SLOW_LAYER layer=17 ms=105.688 seqLen=88
+SLOW_LAYER layer=20 ms=101.252 seqLen=88
+SLOW_LAYER layer=21 ms=100.439 seqLen=88
+SLOW_LAYER layer=22 ms=111.424 seqLen=88
+SLOW_LAYER layer=24 ms=112.158 seqLen=88
+SLOW_LAYER layer=26 ms=112.525 seqLen=88
+
+[2m[TPS][0m   0.29 tok/s | tokens=78     |  266.5s   [FWD_ALL] seqLen=89 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=2 ms=102.783 seqLen=89
+SLOW_LAYER layer=5 ms=106.022 seqLen=89
+SLOW_LAYER layer=14 ms=107.361 seqLen=89
+SLOW_LAYER layer=21 ms=105.024 seqLen=89
+SLOW_LAYER layer=26 ms=102.696 seqLen=89
+
+[2m[TPS][0m   0.29 tok/s | tokens=79     |  269.7s   [FWD_ALL] seqLen=90 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=2 ms=105.842 seqLen=90
+SLOW_LAYER layer=4 ms=100.966 seqLen=90
+SLOW_LAYER layer=6 ms=104.551 seqLen=90
+SLOW_LAYER layer=7 ms=116.962 seqLen=90
+SLOW_LAYER layer=12 ms=107.256 seqLen=90
+SLOW_LAYER layer=14 ms=108.037 seqLen=90
+SLOW_LAYER layer=16 ms=103.110 seqLen=90
+SLOW_LAYER layer=17 ms=109.127 seqLen=90
+SLOW_LAYER layer=21 ms=113.741 seqLen=90
+SLOW_LAYER layer=22 ms=115.804 seqLen=90
+SLOW_LAYER layer=26 ms=108.348 seqLen=90
+
+[2m[TPS][0m   0.29 tok/s | tokens=80     |  273.0s   [FWD_ALL] seqLen=91 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=4 ms=100.349 seqLen=91
+SLOW_LAYER layer=6 ms=101.792 seqLen=91
+SLOW_LAYER layer=11 ms=102.587 seqLen=91
+SLOW_LAYER layer=15 ms=110.020 seqLen=91
+SLOW_LAYER layer=16 ms=103.081 seqLen=91
+SLOW_LAYER layer=21 ms=100.496 seqLen=91
+SLOW_LAYER layer=23 ms=107.542 seqLen=91
+SLOW_LAYER layer=24 ms=101.270 seqLen=91
+SLOW_LAYER layer=26 ms=100.891 seqLen=91
+
+[2m[TPS][0m   0.29 tok/s | tokens=81     |  276.2s   [FWD_ALL] seqLen=92 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=8 ms=101.391 seqLen=92
+SLOW_LAYER layer=10 ms=113.743 seqLen=92
+SLOW_LAYER layer=12 ms=111.253 seqLen=92
+SLOW_LAYER layer=14 ms=106.591 seqLen=92
+SLOW_LAYER layer=15 ms=115.400 seqLen=92
+SLOW_LAYER layer=16 ms=105.736 seqLen=92
+SLOW_LAYER layer=21 ms=136.192 seqLen=92
+SLOW_LAYER layer=22 ms=117.129 seqLen=92
+SLOW_LAYER layer=23 ms=132.663 seqLen=92
+SLOW_LAYER layer=24 ms=109.873 seqLen=92
+SLOW_LAYER layer=25 ms=106.679 seqLen=92
+SLOW_LAYER layer=26 ms=124.333 seqLen=92
+SLOW_LAYER layer=27 ms=128.325 seqLen=92
+
+[2m[TPS][0m   0.29 tok/s | tokens=82     |  279.6s   [FWD_ALL] seqLen=93 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=0 ms=123.187 seqLen=93
+SLOW_LAYER layer=6 ms=112.439 seqLen=93
+SLOW_LAYER layer=7 ms=123.647 seqLen=93
+SLOW_LAYER layer=9 ms=105.237 seqLen=93
+SLOW_LAYER layer=11 ms=101.756 seqLen=93
+SLOW_LAYER layer=14 ms=108.645 seqLen=93
+SLOW_LAYER layer=18 ms=116.951 seqLen=93
+SLOW_LAYER layer=19 ms=120.320 seqLen=93
+SLOW_LAYER layer=21 ms=115.411 seqLen=93
+SLOW_LAYER layer=22 ms=101.434 seqLen=93
+SLOW_LAYER layer=23 ms=127.073 seqLen=93
+SLOW_LAYER layer=24 ms=123.300 seqLen=93
+SLOW_LAYER layer=25 ms=108.209 seqLen=93
+SLOW_LAYER layer=26 ms=108.041 seqLen=93
+
+[2m[TPS][0m   0.29 tok/s | tokens=83     |  283.1s   [FWD_ALL] seqLen=94 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=3 ms=119.587 seqLen=94
+SLOW_LAYER layer=4 ms=107.721 seqLen=94
+SLOW_LAYER layer=5 ms=100.178 seqLen=94
+SLOW_LAYER layer=6 ms=102.212 seqLen=94
+SLOW_LAYER layer=7 ms=102.598 seqLen=94
+SLOW_LAYER layer=17 ms=108.186 seqLen=94
+SLOW_LAYER layer=21 ms=112.939 seqLen=94
+SLOW_LAYER layer=22 ms=100.802 seqLen=94
+SLOW_LAYER layer=26 ms=109.235 seqLen=94
+SLOW_LAYER layer=27 ms=105.902 seqLen=94
+
+[2m[TPS][0m   0.29 tok/s | tokens=84     |  286.4s   [FWD_ALL] seqLen=95 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=12 ms=101.710 seqLen=95
+SLOW_LAYER layer=15 ms=105.117 seqLen=95
+SLOW_LAYER layer=17 ms=105.358 seqLen=95
+SLOW_LAYER layer=22 ms=103.809 seqLen=95
+SLOW_LAYER layer=24 ms=118.843 seqLen=95
+SLOW_LAYER layer=26 ms=113.543 seqLen=95
+
+[2m[TPS][0m   0.29 tok/s | tokens=85     |  289.6s   [FWD_ALL] seqLen=96 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=2 ms=102.015 seqLen=96
+SLOW_LAYER layer=7 ms=103.697 seqLen=96
+SLOW_LAYER layer=12 ms=104.213 seqLen=96
+SLOW_LAYER layer=13 ms=100.911 seqLen=96
+SLOW_LAYER layer=16 ms=108.339 seqLen=96
+SLOW_LAYER layer=18 ms=101.111 seqLen=96
+SLOW_LAYER layer=21 ms=101.023 seqLen=96
+SLOW_LAYER layer=24 ms=101.576 seqLen=96
+
+[2m[TPS][0m   0.29 tok/s | tokens=86     |  292.7s   [FWD_ALL] seqLen=97 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=3 ms=100.118 seqLen=97
+SLOW_LAYER layer=8 ms=120.600 seqLen=97
+SLOW_LAYER layer=12 ms=103.062 seqLen=97
+SLOW_LAYER layer=17 ms=113.263 seqLen=97
+SLOW_LAYER layer=20 ms=115.700 seqLen=97
+SLOW_LAYER layer=21 ms=106.781 seqLen=97
+SLOW_LAYER layer=22 ms=118.805 seqLen=97
+SLOW_LAYER layer=27 ms=101.922 seqLen=97
+
+[2m[TPS][0m   0.29 tok/s | tokens=87     |  296.0s   [FWD_ALL] seqLen=98 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=3 ms=108.723 seqLen=98
+SLOW_LAYER layer=12 ms=106.621 seqLen=98
+SLOW_LAYER layer=17 ms=103.221 seqLen=98
+SLOW_LAYER layer=27 ms=101.377 seqLen=98
+
+[2m[TPS][0m   0.29 tok/s | tokens=88     |  299.2s   [FWD_ALL] seqLen=99 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+SLOW_LAYER layer=0 ms=105.058 seqLen=99
+SLOW_LAYER layer=1 ms=106.468 seqLen=99
+SLOW_LAYER layer=2 ms=101.746 seqLen=99
+SLOW_LAYER layer=7 ms=107.212 seqLen=99
+SLOW_LAYER layer=8 ms=102.551 seqLen=99
+SLOW_LAYER layer=9 ms=119.416 seqLen=99
+SLOW_LAYER layer=10 ms=110.621 seqLen=99
+SLOW_LAYER layer=12 ms=102.301 seqLen=99
+SLOW_LAYER layer=14 ms=112.908 seqLen=99
+SLOW_LAYER layer=15 ms=122.779 seq

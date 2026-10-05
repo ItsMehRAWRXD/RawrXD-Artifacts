@@ -1,0 +1,5 @@
+if(EXISTS "F:/~dev/rawrxd/src/deep2/Deep2Engine.cpp")
+  message(STATUS "PROBE_EXISTS=YES")
+else()
+  message(STATUS "PROBE_EXISTS=NO")
+endif()

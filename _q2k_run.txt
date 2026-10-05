@@ -1,0 +1,115 @@
+MODEL=G:\~dev\rawrxd\models\llama3.2-3b-Q2_K.gguf
+PLANNED_GENERATIONS=1
+MAX_TOKENS_PER_GENERATION=4
+EOS_PROBE_MAX_TOKENS=48
+CUSTOM_PROMPT=(none)
+CUSTOM_EOS_PROMPT=(none)
+ENGINE_INSTANCES=1
+ENGINE_RECONSTRUCTED_BETWEEN_GENERATIONS=0
+[INIT] Deep2Engine::initialize hiddenDim=0 vocabSize=0 numLayers=0 numHeads=0 maxSeqLen=4096 numThreads=0
+ENGINE_INIT=PASS
+[INIT] remote64 authority linked observe=0 control=0
+[QuantKernelRegistry] CPU features: AVX512F=1 AVX512BW=1 AVX512DQ=1 AVX512VNNI=1 AVX2=1 FMA=1 F16C=1
+[QuantKernelRegistry] Registered 14 GEMV kernels, 14 dequant kernels
+[INIT] KVCache+tokenizer+sampler created
+[INIT] Deep2Engine::initialize SUCCESS
+[GGUFLoader] GCD=256 rejected: would exceed file size (trialStart=7837696, maxOffset=1356097792, fileSize=1363935456)
+[Deep2Engine] MLA_TENSOR name=blk.0.attn_k.weight shape=[3072,1024] type=10 bytes=1032192
+[Deep2Engine] MLA_TENSOR name=blk.0.attn_norm.weight shape=[3072] type=0 bytes=12288
+[Deep2Engine] MLA_TENSOR name=blk.0.attn_output.weight shape=[3072,3072] type=11 bytes=4055040
+[Deep2Engine] MLA_TENSOR name=blk.0.attn_q.weight shape=[3072,3072] type=10 bytes=3096576
+[Deep2Engine] MLA_TENSOR name=blk.0.attn_v.weight shape=[3072,1024] type=11 bytes=1351680
+[Deep2Engine] MLA_METADATA arch=llama layout=unknown numHeads=24 kvLoraRank=0 qLoraRank=0 qkNopeHeadDim=0 qkRopeHeadDim=0 vHeadDim=128 keyLength=128 valueLength=128 geometryValidated=0
+[Deep2Engine] ROPE_ARCH=llama ROPE_THETA_GLOBAL=500000.0 ROPE_THETA_LOCAL=500000.0 SLIDING_WINDOW=0 SLIDING_WINDOW_PATTERN=0
+[QuantKernelRegistry] CPU features: AVX512F=1 AVX512BW=1 AVX512DQ=1 AVX512VNNI=1 AVX2=1 FMA=1 F16C=1
+[QuantKernelRegistry] Registered 14 GEMV kernels, 14 dequant kernels
+[Deep2Engine] admission OK arch=llama family=GENERIC_TRANSFORMER moe=0 mla=0 recurrent=0 slidingWindow=0 quant=Q6_K(type 14) tensors=255
+[ALLOC] allocateBuffers H=3072 V=128256 I=8192
+[ALLOC] qDim=3072 kvDim=1024 numHeads=24 headDim=128 numKVHeads=8
+[ALLOC] all buffers allocated OK
+[Deep2Engine] GGUF mapped: arch=llama shards=1 tensors=255 layers=28 hidden=3072 heads=24 kv_heads=8 vocab=128256
+MODEL_LOAD=PASS loadMs=870 kvAtLoad=0
+ARCH=llama
+HIDDEN=3072
+LAYERS=28
+HEADS=24
+KV_HEADS=8
+HEAD_DIM=128
+GQA_GROUP=3
+FFN_DIM=8192
+ROPE_THETA=500000
+ROPE_SCALING=1
+ROPE_DIM=128
+ROPE_NEOX=1
+RMS_EPS=1e-05
+Q_BIAS=absent
+K_BIAS=absent
+V_BIAS=absent
+TIE_EMBED=1
+ROOT:G_PRE_RUNONE idx=0
+ROOT:A_PRE_GENERATE idx=0
+[TOKENIZE] text='Name exactly three primary colors, separated by commas.' -> 10 tokens
+[FWD_ALL] seqLen=1 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=3891710cbbfa5b79 shard=0 file_off=336154848 backing=1 bytes=3096576 dims=3072x3072
+[WQEXT] WQ type=10 ne0=3072 ne1=3072 nb0=3072 nb1=3096576 data=00000245140950E0 row_bytes=1008 blocks_per_row=12 block_size=84.0000
+[WQEXT] WQ first84=5b5736dfff6a3668695647247b585b35b5b9aa2ae52485fb5db53cb9a52a6821aae2db2806aa79aa68a67f999b9e57aa596a5e165da97e52b66b294665d54b5cdfa35a846a6dd28fd9e6eaa6154a9dba3a1f3d24
+[PROV] site=WQEXT tensor=WK id=0f559d89553723bb shard=0 file_off=331055328 backing=1 bytes=1032192 dims=1024x3072
+[WQEXT] WK type=10 ne0=3072 ne1=1024 nb0=3072 nb1=1032192 data=0000024513BB80E0 row_bytes=1008 blocks_per_row=12 block_size=84.0000
+[WQEXT] WK first84=7b8f497a79bb1dfc5a376717abad6a3936506239696e072231697a6540fb273be5b6faad89fa62a9a8ea3ae5ebeafaf5a5b44d6e358f766d66a92d329aadecb52ce128a66515a570d72124552546606a8f20a925
+[PROV] site=WQEXT tensor=WV id=494e9b49566ceb1f shard=0 file_off=339251424 backing=1 bytes=1351680 dims=1024x3072
+[WQEXT] WV type=11 ne0=3072 ne1=1024 nb0=3072 nb1=1351680 data=00000245143890E0 row_bytes=1320 blocks_per_row=12 block_size=110.0000
+[WQEXT] WV first84=bee6761dcda45ffbb67bd2c769fecab8e8c3dd4aad6cf99f2f372d196f7aefea71e78b82cc464136e6d008bf39221b3f3f709df0082b615540c40aa881ba7981ac01ac0f8e73230cf88209dcd01aa035498a1449
+SLOW_LAYER layer=0 ms=126.889 seqLen=1
+SLOW_LAYER layer=1 ms=147.490 seqLen=1
+SLOW_LAYER layer=2 ms=158.291 seqLen=1
+SLOW_LAYER layer=3 ms=144.334 seqLen=1
+SLOW_LAYER layer=4 ms=130.509 seqLen=1
+SLOW_LAYER layer=5 ms=130.143 seqLen=1
+SLOW_LAYER layer=6 ms=115.085 seqLen=1
+SLOW_LAYER layer=7 ms=118.103 seqLen=1
+SLOW_LAYER layer=8 ms=132.420 seqLen=1
+SLOW_LAYER layer=9 ms=191.544 seqLen=1
+SLOW_LAYER layer=10 ms=205.301 seqLen=1
+SLOW_LAYER layer=11 ms=229.268 seqLen=1
+SLOW_LAYER layer=12 ms=243.912 seqLen=1
+SLOW_LAYER layer=13 ms=290.046 seqLen=1
+SLOW_LAYER layer=14 ms=156.639 seqLen=1
+SLOW_LAYER layer=15 ms=130.830 seqLen=1
+SLOW_LAYER layer=16 ms=116.287 seqLen=1
+SLOW_LAYER layer=17 ms=113.142 seqLen=1
+SLOW_LAYER layer=18 ms=123.858 seqLen=1
+SLOW_LAYER layer=19 ms=117.409 seqLen=1
+SLOW_LAYER layer=20 ms=123.000 seqLen=1
+SLOW_LAYER layer=21 ms=138.518 seqLen=1
+SLOW_LAYER layer=22 ms=118.361 seqLen=1
+SLOW_LAYER layer=23 ms=113.456 seqLen=1
+SLOW_LAYER layer=24 ms=110.495 seqLen=1
+SLOW_LAYER layer=25 ms=112.432 seqLen=1
+SLOW_LAYER layer=26 ms=113.152 seqLen=1
+SLOW_LAYER layer=27 ms=114.386 seqLen=1
+[FWD_ALL] seqLen=2 numLayers=28 isMoE=0 useMLA=0 vulkan=0/0
+[ATTNBISECT_ROUTE] L=0 NOGROUP_REQUESTED=0 GROUPED_RETURNED=0
+[WQEXT_SITE_REACHED=1 layer=0]
+[PROV] site=WQEXT tensor=WQ id=3891710cbbfa5b79 shard=0 file_off=336154848 backing=1 bytes=3096576 dims=3072x3072
+[WQEXT] WQ type=10 ne0=3072 ne1=3072 nb0=3072 nb1=3096576 data=00000245140950E0 row_bytes=1008 blocks_per_row=12 block_size=84.0000
+[WQEXT] WQ first84=5b5736dfff6a3668695647247b585b35b5b9aa2ae52485fb5db53cb9a52a6821aae2db2806aa79aa68a67f999b9e57aa596a5e165da97e52b66b294665d54b5cdfa35a846a6dd28fd9e6eaa6154a9dba3a1f3d24
+[PROV] site=WQEXT tensor=WK id=0f559d89553723bb shard=0 file_off=331055328 backing=1 bytes=1032192 dims=1024x3072
+[WQEXT] WK type=10 ne0=3072 ne1=1024 nb0=3072 nb1=1032192 data=0000024513BB80E0 row_bytes=1008 blocks_per_row=12 block_size=84.0000
+[WQEXT] WK first84=7b8f497a79bb1dfc5a376717abad6a3936506239696e072231697a6540fb273be5b6faad89fa62a9a8ea3ae5ebeafaf5a5b44d6e358f766d66a92d329aadecb52ce128a66515a570d72124552546606a8f20a925
+[PROV] site=WQEXT tensor=WV id=494e9b49566ceb1f shard=0 file_off=339251424 backing=1 bytes=1351680 dims=1024x3072
+[WQEXT] WV type=11 ne0=3072 ne1=1024 nb0=3072 nb1=1351680 data=00000245143890E0 row_bytes=1320 blocks_per_row=12 block_size=110.0000
+[WQEXT] WV first84=bee6761dcda45ffbb67bd2c769fecab8e8c3dd4aad6cf99f2f372d196f7aefea71e78b82cc464136e6d008bf39221b3f3f709df0082b615540c40aa881ba7981ac01ac0f8e73230cf88209dcd01aa035498a1449
+SLOW_LAYER layer=0 ms=117.613 seqLen=2
+SLOW_LAYER layer=1 ms=112.518 seqLen=2
+SLOW_LAYER layer=2 ms=108.358 seqLen=2
+SLOW_LAYER layer=3 ms=128.950 seqLen=2
+SLOW_LAYER layer=4 ms=136.247 seqLen=2
+SLOW_LAYER layer=5 ms=106.969 seqLen=2
+SLOW_LAYER layer=6 ms=113.791 seqLen=2
+SLOW_LAYER layer=7 ms=114.615 seqLen=2
+SLOW_LAYER layer=8 ms=109.090 seqLen=2
+SLOW_LAYER layer=9 ms=101.316 seqLen=2
+SLOW_LAYER layer=11 ms=114.355 seqLen=2
+SLOW_LAYER layer=12 ms=109.691 seqLen=2
