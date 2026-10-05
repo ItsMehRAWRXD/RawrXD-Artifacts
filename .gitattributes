@@ -1,0 +1,10 @@
+# Every object in this repository is EVIDENCE and is addressed by SHA-256.
+# With core.autocrlf active, text files were stored LF and checked out CRLF,
+# so 12 of 494 .txt receipts failed byte-level verification against the
+# manifest even though their content was identical. Measured:
+#   local 1413 bytes  remote checkout 1454 bytes  delta 41 = one CR per line
+#   remote normalised to LF reproduces the local SHA-256 exactly
+# Content addressing is unsound unless the bytes round-trip, so all
+# normalisation is disabled here.
+* -text
+
