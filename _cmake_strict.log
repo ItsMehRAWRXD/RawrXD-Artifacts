@@ -1,0 +1,53 @@
+CMake Warning at CMakeLists.txt:4021 (message):
+  [RAWRXD_SSOT_BEACON_GATE_HONESTY_001] SSOT beacon ownership gate is
+  UNIMPLEMENTED.  Missing script(s): sync_ssot_beacon_symbols.ps1,
+  generate_ssot_beacon_table.ps1, verify_ssot_ext_ownership.ps1.  The targets
+  regen-ssot-beacons and verify-ssot-ext-ownership are NOT created, and are
+  NOT attached as dependencies of RawrEngine or RawrXD_Gold, because a build
+  gate that cannot execute must not appear in the graph as though it had
+  verified anything.  This gate is recorded UNIMPLEMENTED.  It is not PASS
+  and not SKIPPED.
+
+
+CMake Warning at CMakeLists.txt:16175 (message):
+  [SoloIDE] Qt6 not found
+  +├â┬»├é┬┐├é┬╜-├â┬»├é┬┐├é┬╜+├â┬»├é┬┐├é┬╜-├â┬»├é┬┐├é┬╜+├â┬»├é┬┐├é┬╜-├â┬»├é┬┐├é┬╜
+  SoloIDE target skipped.  Install Qt6 or set CMAKE_PREFIX_PATH.
+
+
+CMake Error at CMakeLists.txt:16186 (add_executable):
+  Cannot find source file:
+
+    src/deep2/Deep2Engine.cpp
+
+
+
+CMake Error at CMakeLists.txt:16186 (add_executable):
+  No SOURCES given to target: test_llama_native
+
+
+CMake Error at CMakeLists.txt:16232 (add_executable):
+  No SOURCES given to target: k2_runtime_validation
+
+
+CMake Error at CMakeLists.txt:16305 (add_executable):
+  No SOURCES given to target: k2_native_smoke_test
+
+
+CMake Error at CMakeLists.txt:16353 (add_executable):
+  No SOURCES given to target: k2_002_tensor_streaming
+
+
+CMake Error at CMakeLists.txt:16402 (add_executable):
+  No SOURCES given to target: k2_003_layer_execution
+
+
+CMake Error at CMakeLists.txt:16479 (add_executable):
+  No SOURCES given to target: k2_004_bounded_prefill
+
+
+CMake Error at CMakeLists.txt:18012 (add_executable):
+  No SOURCES given to target: certification_harness
+
+
+CMake Generate step failed.  Build files cannot be regenerated correctly.

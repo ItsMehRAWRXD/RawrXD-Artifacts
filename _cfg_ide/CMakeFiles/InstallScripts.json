@@ -1,0 +1,12 @@
+{
+	"InstallScripts" : 
+	[
+		"F:/~dev/_cfg_ide/cmake_install.cmake",
+		"F:/~dev/_cfg_ide/src/reverse_engineering/cmake_install.cmake",
+		"F:/~dev/_cfg_ide/src/ceo/cmake_install.cmake",
+		"F:/~dev/_cfg_ide/src/repository/cmake_install.cmake",
+		"F:/~dev/_cfg_ide/src/generation/cmake_install.cmake",
+		"F:/~dev/_cfg_ide/rguf_source/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

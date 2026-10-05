@@ -1,0 +1,32 @@
+CMake Warning at CMakeLists.txt:4022 (message):
+  [RAWRXD_SSOT_BEACON_GATE_HONESTY_001] SSOT beacon ownership gate is
+  UNIMPLEMENTED.  Missing script(s): sync_ssot_beacon_symbols.ps1,
+  generate_ssot_beacon_table.ps1, verify_ssot_ext_ownership.ps1.  The targets
+  regen-ssot-beacons and verify-ssot-ext-ownership are NOT created, and are
+  NOT attached as dependencies of RawrEngine or RawrXD_Gold, because a build
+  gate that cannot execute must not appear in the graph as though it had
+  verified anything.  This gate is recorded UNIMPLEMENTED.  It is not PASS
+  and not SKIPPED.
+
+
+CMake Warning at CMakeLists.txt:712 (message):
+  [rawrxd_filter_missing_sources] ASM_KERNEL_SOURCES: DROPPED 1 nonexistent
+  source(s).  This target will build with less code than its source list
+  implies.  Set -DRAWRXD_STRICT_SOURCES=ON to make this fatal.
+Call Stack (most recent call first):
+  CMakeLists.txt:4527 (rawrxd_filter_missing_sources)
+
+
+CMake Warning at CMakeLists.txt:16173 (message):
+  [SoloIDE] Qt6 not found +├»┬┐┬╜-├»┬┐┬╜+├»┬┐┬╜-├»┬┐┬╜+├»┬┐┬╜-├»┬┐┬╜ SoloIDE
+  target skipped.  Install Qt6 or set CMAKE_PREFIX_PATH.
+
+
+CMake Warning at CMakeLists.txt:19340 (message):
+  VERDICT=FAIL_DROPPED_SOURCE: RAWRXD_DROPPED_SOURCE_TOTAL=1: 1 referenced
+  source file(s) do not exist and were dropped.  Affected targets built with
+  less code than their source lists imply.  Re-run with
+  -DRAWRXD_STRICT_SOURCES=ON to make this a hard configure error and get the
+  full list of absent paths.
+
+

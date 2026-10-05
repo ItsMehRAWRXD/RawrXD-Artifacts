@@ -1,0 +1,5 @@
+@echo off
+call "C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Auxiliary\Build\vcvars64.bat" >nul 2>&1
+cd /d F:\~dev\build_rawr_ninja
+cl /nologo /std:c++20 /EHsc /W4 /permissive- /utf-8 /O2 -DNOMINMAX -DRAWRXD_REMOTE64_LINKED -DRAWRXD_ATOMIC_ACTIVATION_ENABLED -DRAWR_ENABLE_VULKAN -DRAWR_HAS_VULKAN -DVULKAN_HPP_DISPATCH_LOADER_DYNAMIC -DWIN32_LEAN_AND_MEAN -D_CRT_SECURE_NO_WARNINGS /I"F:\~dev\rawrxd\include" /I"F:\~dev\rawrxd\src" /I"F:\~dev\rawrxd\src\deep2" /I"F:\~dev\rawrxd\src\deep2\lavapath" /I"F:\~dev\rawrxd\src\inference" /I"F:\~dev\rawrxd\src\engine" /I"F:\~dev\rawrxd\src\core" /I"F:\~dev\rawrxd\src\codec" /I"F:\~dev\rawrxd\src\masm" /I"F:\~dev\rawrxd\src\runtime\governance" /I"F:\~dev\rawrxd\src\remote64" /I"F:\~dev\rawrxd\src\asm" /I"C:\VulkanSDK\1.4.357.0\Include" /I"D:\rawrxd\Ship\webview2\build\native\include" /c /Fo:"F:\~dev\audit_tombstone_001\batch1\engine_cert.obj" "F:\~dev\rawrxd\tools\deep2_sovereign_engine_cert_001.cpp"
+echo COMPILE_EXIT=%ERRORLEVEL%

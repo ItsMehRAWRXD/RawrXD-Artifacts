@@ -1,0 +1,55 @@
+=============================================
+  Deep2 OpenAI-Compatible Local Model Server
+=============================================
+[server] tool authority: builtins installed, root=F:\~dev write=off execute=off
+[server] Loading model: G:\~dev\rawrxd\models\tinyllama-1.1b-chat-v1.0.Q4_K_M.gguf
+D2LOAD_S04a_MODEL_ENTER
+[GGUFLoader] GCD=4096 rejected: would exceed file size (trialStart=1712128, maxOffset=667078656, fileSize=668788096)
+[Deep2Engine] MLA_TENSOR name=blk.0.attn_k.weight shape=[2048,256] type=12 bytes=294912
+[Deep2Engine] MLA_TENSOR name=blk.0.attn_norm.weight shape=[2048] type=0 bytes=8192
+[Deep2Engine] MLA_TENSOR name=blk.0.attn_output.weight shape=[2048,2048] type=12 bytes=2359296
+[Deep2Engine] MLA_TENSOR name=blk.0.attn_q.weight shape=[2048,2048] type=12 bytes=2359296
+[Deep2Engine] MLA_TENSOR name=blk.0.attn_v.weight shape=[2048,256] type=14 bytes=430080
+[Deep2Engine] MLA_METADATA arch=llama layout=unknown numHeads=32 kvLoraRank=0 qLoraRank=0 qkNopeHeadDim=0 qkRopeHeadDim=0 vHeadDim=0 keyLength=0 valueLength=0 geometryValidated=0
+[Deep2Engine] ROPE_ARCH=llama ROPE_THETA_GLOBAL=10000.0 ROPE_THETA_LOCAL=10000.0 SLIDING_WINDOW=0 SLIDING_WINDOW_PATTERN=0
+[QuantKernelRegistry] CPU features: AVX512F=1 AVX512BW=1 AVX512DQ=1 AVX512VNNI=1 AVX2=1 FMA=1 F16C=1
+[QuantKernelRegistry] Registered 14 GEMV kernels, 14 dequant kernels
+[Deep2Engine] admission OK arch=llama family=GENERIC_TRANSFORMER moe=0 mla=0 recurrent=0 slidingWindow=0 quant=Q4_K(type 12) tensors=201
+[INIT] Deep2Engine::initialize hiddenDim=2048 vocabSize=32000 numLayers=22 numHeads=32 maxSeqLen=2048 numThreads=0
+[INIT] remote64 authority linked observe=0 control=0
+[QuantKernelRegistry] CPU features: AVX512F=1 AVX512BW=1 AVX512DQ=1 AVX512VNNI=1 AVX2=1 FMA=1 F16C=1
+[QuantKernelRegistry] Registered 14 GEMV kernels, 14 dequant kernels
+[INIT] KVCache+tokenizer+sampler created
+[ALLOC] allocateBuffers H=2048 V=32000 I=5632
+[ALLOC] qDim=2048 kvDim=256 numHeads=32 headDim=64 numKVHeads=4
+[ALLOC] all buffers allocated OK
+[INIT] allocateBuffers OK
+[INIT] KVCache::allocate OK layers=22 heads=4 headDim=64 maxSeqLen=2048
+[INIT] Deep2Engine::initialize SUCCESS
+[Deep2Engine] GGUF mapped: arch=llama shards=1 tensors=201 layers=22 hidden=2048 heads=32 kv_heads=4 vocab=32000
+ARCH=llama
+HIDDEN=2048
+LAYERS=22
+HEADS=32
+KV_HEADS=4
+HEAD_DIM=64
+GQA_GROUP=8
+FFN_DIM=5632
+ROPE_THETA=10000
+ROPE_SCALING=1
+ROPE_DIM=64
+ROPE_NEOX=1
+RMS_EPS=1e-05
+Q_BIAS=absent
+K_BIAS=absent
+V_BIAS=absent
+TIE_EMBED=0
+D2LOAD_S04b_MODEL_PASS
+[GGUFLoader] GCD=4096 rejected: would exceed file size (trialStart=1712128, maxOffset=667078656, fileSize=668788096)
+[OpenAI] ChatTemplate=phi3 for model=tinyllama-1.1b-chat-v1.0.Q4_K_M
+[OpenAI] MODEL_LOAD=PASS  model=tinyllama-1.1b-chat-v1.0.Q4_K_M
+[OpenAI] BIND_MODE=LOOPBACK_ONLY
+[OpenAI] Server listening on http://127.0.0.1:21733
+[server] Ready.   Endpoint: http://127.0.0.1:21733/v1/chat/completions
+[server] Press Ctrl+C to stop.
+[GET /health] 200  0.27 ms

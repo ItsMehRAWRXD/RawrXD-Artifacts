@@ -1,0 +1,40 @@
+MSBuild version 17.14.51+25f168cee for .NET Framework
+
+  Checking File Globs
+  RawrXD_NanoQuant.vcxproj -> F:\~dev\rawrxd\build\Release\RawrXD_NanoQuant.lib
+  quickjs_static.vcxproj -> F:\~dev\rawrxd\build\Release\quickjs_static.lib
+  rawrxd_remote64.vcxproj -> F:\~dev\rawrxd\build\Release\rawrxd_remote64.lib
+  Deep2Engine.cpp
+F:\~dev\rawrxd\src\deep2\Deep2Engine.h(921,63): error C2065: 'routeReceipt_': undeclared identifier [F:\~dev\rawrxd\build\InferenceEngine.vcxproj]
+  (compiling source file '../src/deep2/Deep2Engine.cpp')
+  
+  Deep2Engine_Speculative.cpp
+F:\~dev\rawrxd\src\deep2\Deep2Engine.h(921,63): error C2065: 'routeReceipt_': undeclared identifier [F:\~dev\rawrxd\build\InferenceEngine.vcxproj]
+  (compiling source file '../src/deep2/Deep2Engine_Speculative.cpp')
+  
+  ChatTemplate.cpp
+F:\~dev\rawrxd\src\deep2\Deep2Engine.h(921,63): error C2065: 'routeReceipt_': undeclared identifier [F:\~dev\rawrxd\build\InferenceEngine.vcxproj]
+  (compiling source file '../src/deep2/ChatTemplate.cpp')
+  
+  ModelRegistry.cpp
+F:\~dev\rawrxd\src\deep2\Deep2Engine.h(921,63): error C2065: 'routeReceipt_': undeclared identifier [F:\~dev\rawrxd\build\InferenceEngine.vcxproj]
+  (compiling source file '../src/deep2/ModelRegistry.cpp')
+  
+  Deep2Engine_VulkanRuntime.cpp
+F:\~dev\rawrxd\src\deep2\Deep2Engine.h(921,63): error C2065: 'routeReceipt_': undeclared identifier [F:\~dev\rawrxd\build\InferenceEngine.vcxproj]
+  (compiling source file '../src/deep2/Deep2Engine_VulkanRuntime.cpp')
+  
+  Deep2DualGpuRowSplit.cpp
+F:\~dev\rawrxd\src\deep2\Deep2Engine.h(921,63): error C2065: 'routeReceipt_': undeclared identifier [F:\~dev\rawrxd\build\InferenceEngine.vcxproj]
+  (compiling source file '../src/deep2/Deep2DualGpuRowSplit.cpp')
+  
+  Deep2Engine_GpuMoEMLA.cpp
+F:\~dev\rawrxd\src\deep2\Deep2Engine.h(921,63): error C2065: 'routeReceipt_': undeclared identifier [F:\~dev\rawrxd\build\InferenceEngine.vcxproj]
+  (compiling source file '../src/deep2/Deep2Engine_GpuMoEMLA.cpp')
+  
+  deep2_cpu_mla.cpp
+F:\~dev\rawrxd\src\deep2\Deep2Engine.h(921,63): error C2065: 'routeReceipt_': undeclared identifier [F:\~dev\rawrxd\build\InferenceEngine.vcxproj]
+  (compiling source file '../src/deep2/deep2_cpu_mla.cpp')
+  
+  Deep2Engine_GpuForward.cpp
+Attempting to cancel the build...

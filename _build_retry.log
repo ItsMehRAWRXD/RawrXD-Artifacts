@@ -1,0 +1,11 @@
+MSBuild version 17.14.51+25f168cee for .NET Framework
+
+  Checking File Globs
+  RawrXD_NanoQuant.vcxproj -> F:\~dev\rawrxd\build\Release\RawrXD_NanoQuant.lib
+  quickjs_static.vcxproj -> F:\~dev\rawrxd\build\Release\quickjs_static.lib
+  rawrxd_remote64.vcxproj -> F:\~dev\rawrxd\build\Release\rawrxd_remote64.lib
+  ChatTemplate.cpp
+  Deep2DualGpuRowSplit.cpp
+  Deep2Engine.cpp
+  Deep2Engine_GpuForward.cpp
+Attempting to cancel the build...

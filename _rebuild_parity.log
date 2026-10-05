@@ -1,0 +1,33 @@
+MSBuild version 17.14.51+25f168cee for .NET Framework
+
+  Checking File Globs
+  RawrXD_NanoQuant.vcxproj -> F:\~dev\rawrxd\build\Release\RawrXD_NanoQuant.lib
+  quickjs_static.vcxproj -> F:\~dev\rawrxd\build\Release\quickjs_static.lib
+  rawrxd_remote64.vcxproj -> F:\~dev\rawrxd\build\Release\rawrxd_remote64.lib
+  streaming_inference_engine.cpp
+  ChatTemplate.cpp
+  Deep2DualGpuRowSplit.cpp
+  Deep2Engine.cpp
+  Deep2Engine_GpuForward.cpp
+  Deep2Engine_GpuMoEMLA.cpp
+  Deep2Engine_Speculative.cpp
+  Deep2Engine_SsVkDecodeBind.cpp
+  Deep2Engine_VulkanRuntime.cpp
+  ModelRegistry.cpp
+  deep2_cpu_mla.cpp
+  Generating Code...
+  vulkan_compute.cpp
+  vulkan_compute.cpp
+  InferenceEngine.vcxproj -> F:\~dev\rawrxd\build\Release\InferenceEngine.lib
+  nqb_reopen_parity_probe.cpp
+F:\~dev\rawrxd\src\deep2\Nanof32BraidFormat.hpp(47,1): warning C4324: 'Deep2::Nanof32BraidHeader': structure was padded due to alignment specifier [F:\~dev\rawrxd\build\nqb_reopen_parity_probe.vcxproj]
+  (compiling source file '../tools/nqb_reopen_parity_probe.cpp')
+  
+F:\~dev\rawrxd\src\deep2\Nanof32BraidFormat.hpp(152,1): warning C4324: 'Deep2::Nanof32VocabHeader': structure was padded due to alignment specifier [F:\~dev\rawrxd\build\nqb_reopen_parity_probe.vcxproj]
+  (compiling source file '../tools/nqb_reopen_parity_probe.cpp')
+  
+F:\~dev\rawrxd\src\deep2\Nanof32BraidFormat.hpp(171,1): warning C4324: 'Deep2::Nanof32BraidTensorFooter': structure was padded due to alignment specifier [F:\~dev\rawrxd\build\nqb_reopen_parity_probe.vcxproj]
+  (compiling source file '../tools/nqb_reopen_parity_probe.cpp')
+  
+F:\~dev\rawrxd\tools\nqb_reopen_parity_probe.cpp(19,13): warning C4505: 'checkFinite': unreferenced function with internal linkage has been removed [F:\~dev\rawrxd\build\nqb_reopen_parity_probe.vcxproj]
+  nqb_reopen_parity_probe.vcxproj -> F:\~dev\rawrxd\build\bin\Release\nqb_reopen_parity_probe.exe

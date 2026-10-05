@@ -1,0 +1,14 @@
+=== RAWRXD_NQB_REAL_REOPEN_001 ===
+NQB_PATH=f:\~dev\rawrxd\build\bin\Release\llama3.2-3b-Q2_K.nqb
+EXPECTED_TENSORS=255
+[NQBRAID] OPEN: params=0 bitsPerWeight=0.00 tensors=255
+FILE_OPEN=PASS
+HEADER_VALID=PASS magic=0x4E513252 version=1
+TENSOR_COUNT=255 EXPECTED=255
+TENSOR_COUNT_MATCH=PASS
+ARCH_META=PASS layers=28 hidden=3072 vocab=128256
+VOCAB_PRESENT=PASS offset=12851032448 bytes=5984600
+[NQBRAID] ERROR: footer magic mismatch
+[NQBRAID] readAllTensors failed at tensor 0
+TENSOR_READ=FAIL
+VERDICT=FAIL
